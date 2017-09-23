@@ -14,6 +14,7 @@ eureka:
     fetch-registry: true
     service-url:
       defaultZone: http://localhost:8800/eureka/
+    registry-fetch-interval-seconds: 10  #从服务器列表获得信息间隔
 
 management:
   security:
