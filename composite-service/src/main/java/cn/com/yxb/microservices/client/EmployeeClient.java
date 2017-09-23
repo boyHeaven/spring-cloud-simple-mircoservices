@@ -24,26 +24,15 @@ public interface EmployeeClient {
     @GetMapping(value = "/findEmployeeByDepartmentId/{departmentId}")
     List<Employee> findEmployeeByDepartmentId(@PathVariable(value = "departmentId") Long id);
 
-    @GetMapping(value = "/findEmployeeByName/{name}")
-    List<Employee> findEmployeeByName(@PathVariable(value = "name") String name);
-
     @Component
     class EmployeeClientFallBack implements EmployeeClient {
-        
+
         @Override
         public List<Employee> findEmployeeByDepartmentId(Long id) {
 
             log.error("通过部门Id查询员工失败======部门Id=" + id);
 
-            return new ArrayList<Employee>();
-        }
-
-        @Override
-        public List<Employee> findEmployeeByName(String name) {
-
-            log.error("通过姓名查询员工失败======name=" + name);
-
-            return new ArrayList<Employee>();
+            return new ArrayList<>();
         }
     }
 
