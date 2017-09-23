@@ -7,7 +7,6 @@ import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +29,7 @@ public interface EmployeeClient {
 
     @Component
     class EmployeeClientFallBack implements EmployeeClient {
+        
         @Override
         public List<Employee> findEmployeeByDepartmentId(Long id) {
 

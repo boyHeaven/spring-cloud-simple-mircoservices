@@ -2,6 +2,8 @@ package cn.com.yxb.microservices.model;
 
 import lombok.Data;
 
+import java.util.List;
+
 /**
  * Created on 2017/9/23.
  *
@@ -16,6 +18,6 @@ public class DepartAndEmplComposite {
 
     private String departNumber;
 
-//    List<>
+    List<Employee> employeeList;
 
 }

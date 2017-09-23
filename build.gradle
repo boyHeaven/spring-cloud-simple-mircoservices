@@ -1,6 +1,6 @@
-buildscript{
+buildscript {
 
-    repositories{
+    repositories {
         maven { url 'http://maven.aliyun.com/nexus/content/groups/public' }
         maven { url 'http://repo1.maven.org/maven2/' }
         maven { url "https://repo.spring.io/snapshot" }
@@ -25,7 +25,7 @@ buildscript{
 
 }
 
-allprojects{
+allprojects {
 
     group 'cn.com.yxn.spring-cloud-simple-microservices'
 
@@ -43,11 +43,12 @@ allprojects{
     def cfg = ext.configs
     def libs = ext.libraries
 
+    // 可以使用bootRun: -Dspring.profiles.active=dev\pro\default
     bootRun {
         systemProperties = System.properties
     }
 
-    repositories{
+    repositories {
         maven { url 'http://maven.aliyun.com/nexus/content/groups/public' }
         maven { url 'http://repo1.maven.org/maven2/' }
         maven { url "https://repo.spring.io/snapshot" }
@@ -57,7 +58,7 @@ allprojects{
         jcenter()
     }
 
-    dependencies{
+    dependencies {
         compile("org.springframework.cloud:spring-cloud-starter-eureka-server:1.3.4.RELEASE")
         compile("org.springframework.cloud:spring-cloud-starter:1.3.0.M1")
 

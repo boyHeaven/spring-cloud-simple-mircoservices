@@ -1,6 +1,7 @@
 package cn.com.yxb.microservices.service;
 
 import cn.com.yxb.microservices.client.DepartmentClient;
+import cn.com.yxb.microservices.client.EmployeeClient;
 import cn.com.yxb.microservices.model.DepartAndEmplComposite;
 import cn.com.yxb.microservices.model.Department;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,9 @@ public class CompositeServiceImpl implements CompositeService {
     @Autowired
     private DepartmentClient departmentClient;
 
+    @Autowired
+    private EmployeeClient employeeClient;
+
     @Override
     public DepartAndEmplComposite findCompositeByDepartmentName(String name) {
 
@@ -29,8 +33,11 @@ public class CompositeServiceImpl implements CompositeService {
             departAndEmplComposite.setId(department.getId());
             departAndEmplComposite.setDepartName(department.getDepartName());
             departAndEmplComposite.setDepartNumber(department.getDepartNumber());
-        }
 
+
+            departAndEmplComposite.setEmployeeList(employeeClient.findEmployeeByDepartmentId(department.getId()));
+        }
+        
         return departAndEmplComposite;
     }
 }
