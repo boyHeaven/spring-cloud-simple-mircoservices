@@ -1,0 +1,21 @@
+server:
+  port: 8804
+
+spring:
+  application:
+    name: employee-service
+management:
+  security:
+    enabled: false
+info:
+  component: employee-service
+eureka:
+  instance:
+    instance-id: ${spring.cloud.client.hostname}:${spring.application.name}:${server.port}
+    prefer-ip-address: true
+
+  client:
+    service-url:
+      defaultZone: http://localhost:8800/eureka/
+
+

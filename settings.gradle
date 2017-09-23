@@ -1,0 +1,10 @@
+rootProject.name = 'spring-cloud-simple-mircoservices'
+include 'eureka-server'
+include 'department-service'
+include 'commons-service'
+include 'composite-service'
+
+
+project(":commons-service").projectDir = file("commons-service")
+include 'employee-service'
+

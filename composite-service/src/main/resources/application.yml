@@ -1,0 +1,25 @@
+server:
+  port: 9900
+spring:
+  application:
+    name: composite-service
+management:
+  security:
+    enabled: false
+
+feign:
+  hystrix:
+    enabled: true
+
+
+eureka:
+  instance:
+    instance-id: ${spring.cloud.client.hostname}:${spring.application.name}:${server.port}
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://localhost:8800/eureka/
+info:
+  component: composite-service
+
+
