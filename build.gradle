@@ -15,13 +15,10 @@ buildscript {
         managementPluginVersion = '0.5.6.RELEASE'
     }
 
-
     dependencies {
-
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
         classpath("io.spring.gradle:dependency-management-plugin:${managementPluginVersion}")
     }
-
 }
 
 allprojects {
@@ -33,7 +30,7 @@ allprojects {
     apply from: "${rootDir}/gradle/configurations.gradle"
 
     apply plugin: 'java'
-    apply plugin: 'eclipse'
+    apply plugin: 'idea'
     apply plugin: 'io.spring.dependency-management'
     apply plugin: 'org.springframework.boot'
 
@@ -57,7 +54,6 @@ allprojects {
         jcenter()
     }
 
-
 //    注意顺序
     dependencies {
         compile("org.springframework.boot:spring-boot-starter-actuator:${libs.springBoot}")
@@ -71,10 +67,10 @@ allprojects {
             mavenBom "org.springframework.cloud:spring-cloud-dependencies:Dalston.SR3"
         }
     }
-
 }
 
 configure(rootProject) {
+
     description = 'The SpringCloud Microservices Project.'
 
     apply plugin: 'groovy'
@@ -89,7 +85,7 @@ configure(rootProject) {
         gradleVersion = "${libs.gradle}"
         distributionUrl = "http://services.gradle.org/distributions/gradle-${libs.gradle}-all.zip"
     }
-
+    
     // don't publish the default jar for the root project
     configurations.archives.artifacts.clear()
 }

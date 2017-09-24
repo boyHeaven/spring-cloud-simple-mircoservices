@@ -12,10 +12,8 @@ info:
 
 eureka:
   client:
-    healthcheck:
-      enabled: true
     serviceUrl:
-      defaultZone: http://locahost:8800/eureka/
+      defaultZone: http://localhost:8800/eureka/
     prefer-same-zone-eureka: true               # 服务端和客户端在同一个zone下
     registry-fetch-interval-seconds: 30         # 隔多久对去服务器拉去信息：默认30秒
     eureka-server-read-timeout-seconds: 5       # 读取超时前等待时间
