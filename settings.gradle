@@ -8,4 +8,5 @@ include 'composite-service'
 project(":commons-service").projectDir = file("commons-service")
 include 'employee-service'
 include 'gateway-service'
+include 'config-server'
 
