@@ -1,0 +1,9 @@
+def cfg = ext.configs
+def libs = ext.libraries
+
+dependencies {
+
+//    compile("org.springframework.cloud:spring-cloud-starter-eureka-server:${libs.springCloudVersion}")
+//    compile("org.springframework.boot:spring-boot-starter-actuator:${springBootVersion}")
+
+}

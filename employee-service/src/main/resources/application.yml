@@ -1,0 +1,31 @@
+server:
+  port: 8803
+
+spring:
+  application:
+    name: employee-service
+management:
+  security:
+    enabled: false
+info:
+  component: employee-service
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8800/eureka/
+    prefer-same-zone-eureka: true               # 服务端和客户端在同一个zone下
+    registry-fetch-interval-seconds: 30         # 隔多久对去服务器拉去信息：默认30秒
+    eureka-server-read-timeout-seconds: 5       # 读取超时前等待时间
+    eureka-server-connect-timeout-seconds: 5    # 连接超时前等待时间
+    eureka-server-total-connections: 500        # 允许连接server最大数量
+
+  instance:
+    instance-id: ${spring.cloud.client.hostname}:${spring.application.name}:${server.port}
+    prefer-ip-address: true                     # 显示ip地址
+    lease-renewal-interval-in-seconds: 30 		# 续约更新时间间隔（默认30秒）:注册慢
+    lease-expiration-duration-in-seconds: 90   	# 续约到期时间（默认90秒）
+#    environment: dev                           # 指定环境
+
+
+

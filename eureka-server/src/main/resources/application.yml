@@ -1,0 +1,26 @@
+server:
+  port: 8800
+
+spring.application.name: eureka
+
+info:
+  component: eureka-server
+
+eureka:
+  instance:
+    hostname: localhost
+    lease-expiration-duration-in-seconds: 90      # 等待客户端发送心跳时间（默认90秒），大于客户端发送的时间，超出则移除掉。
+    prefer-ip-address: true 	                  # 显示Ip
+  client:
+    prefer-same-zone-eureka: true                 # 服务端和客户端在同一个zone下
+    register-with-eureka: false                   # 是否注册自己：默认true
+    fetch-registry: false                         # 是否从服务器获取信息：默认true
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/${spring.application.name}/
+  server:
+    enable-self-preservation: false               # 关闭自我保护，以便踢出已经停掉的服务
+    eviction-interval-timer-in-ms: 30000          # 扫描服务时间，以便踢出无效服务：默认 60*1000 ms
+
+management:
+  security:
+    enabled: false
